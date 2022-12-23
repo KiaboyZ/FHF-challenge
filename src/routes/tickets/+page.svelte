@@ -34,6 +34,7 @@
 	}
 </script>
 
+<p class="text-center font-bold">Tickets</p>
 {#if cart.name == ""}
 	<Container>
 		<p>Aw rats, you haven't selected a show! Go back to the <a class="text-blue-400" href="/shows">shows page</a> before they sell out!</p>
