@@ -1,5 +1,7 @@
 export const load = ({ fetch }: any) => {
 
+	// these are just some dummy show objects I made to load in.
+	// they will be loaded into the shows/+page.svelte file
 	return {
 
 		shows: [

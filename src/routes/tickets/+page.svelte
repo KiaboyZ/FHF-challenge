@@ -7,6 +7,7 @@
 
 	let warning:boolean = false;
 
+	// proceed to checkout if you've added some tickets. Otherwise, display a warning.
 	const proceed = () => {
 		if (cart.tickets > 0) {
 			goto("/checkout")
@@ -15,6 +16,7 @@
 		warning = true;
 	};
 
+	// add 1 to ticket quantity
 	const plus = () => {
 		CartStore.update((currentData) => {
 			let newData = currentData;
@@ -23,6 +25,7 @@
 		})
 	}
 
+	// subtract 1 from ticket quantity
 	const minus = () => {
 		if (cart.tickets > 0) {
 			CartStore.update((currentData) => {

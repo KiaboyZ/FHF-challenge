@@ -6,6 +6,7 @@
 	export let description: string;
 	export let price: number;
 
+	// add a show to the cart when you press the "Buy tickets." button. 
 	const buy = () => {
 		CartStore.update(() => {
 			return {name:name, description:description, price:price, tickets:0};

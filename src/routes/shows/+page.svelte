@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import Show from "../../components/Show.svelte";
 
+	// this is the imported data from the shows/+page.ts file
 	export let data:PageData;
 </script>
 

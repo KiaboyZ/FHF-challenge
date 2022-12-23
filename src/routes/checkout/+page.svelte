@@ -4,6 +4,7 @@
 	import CreditCards from '../../components/CreditCards.svelte';
 	import CartStore from '../Store';
 
+	// access the cart store
 	$: cart = $CartStore;
 
 	let cardWarning:boolean = false;
@@ -14,6 +15,7 @@
 	const serviceFee: number = 44.08;
 	const processingFee: number = 2.95;
 
+	// place the order and go to the finish page as long as you have a valid card and have accepted the terms of use.
 	const placeOrder = () => {
 		if (!validCard) {
 			cardWarning = true;
@@ -32,6 +34,7 @@
 		goto('/finish');
 	};
 
+	// change the termsAgree boolean based on the state of the Terms of Use checkbox.
 	const agreeToTerms = () => {
 		termsAgree = !termsAgree;
 	};
@@ -135,7 +138,7 @@
 				<div class="flex gap-2 items-center">
 					<input class="rounded" type="checkbox" on:click={agreeToTerms} />
 					<p>I have read and agree to the current
-						<a class="text-blue-400" href="/terms" title="Terms of Use">Terms of Use</a>.
+						<a class="text-blue-400" href="/terms" target="_blank" title="Terms of Use">Terms of Use</a>.
 					</p>
 				</div>
 				

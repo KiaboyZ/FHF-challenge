@@ -1,5 +1,6 @@
 import { writable } from "svelte/store";
 
+// stores the tickets you want to order
 const CartStore = writable({
 	name:"",
 	description:"",

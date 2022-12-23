@@ -3,6 +3,9 @@
 
 	export let validCard: boolean = false;
 
+	// represents whether or not you are currently adding a card.
+	let adding: boolean = false;
+	// dummy list of credit cards that you can add to
 	let cards: any = [
 		{
 			name: 'John Johnson',
@@ -13,16 +16,17 @@
 		}
 	];
 
-	let adding: boolean = false;
-
+	// starts adding a new card
 	const startNewCard = () => {
 		adding = true;
 	};
 
+	// stops adding a new card
 	const cancelNewCard = () => {
 		adding = false;
 	};
 
+	// check if there is a selected card with a valid cvv in the cards list
 	const lookForValidCard = () => {
 		validCard = false;
 		for (let index in cards) {
@@ -32,6 +36,8 @@
 		}
 	};
 
+	// when a character is entered in the cvv field, check if it is valid and update the card it corresponds to
+	// then check if any cards are valid for checkout
 	function checkCVV(e: any) {
 		for (let index in cards) {
 			if (e.target.name == cards[index].number) {
@@ -42,6 +48,8 @@
 		lookForValidCard();
 	}
 
+	// when a radio button is selected, update the card it corresponds to and deselect all of the others
+	// then check if any cards are valid for checkout
 	function changeSelected(e: any) {
 		for (let index in cards) {
 			if (e.target.id == cards[index].number) {
@@ -54,6 +62,8 @@
 	}
 
 	// https://www.thisdot.co/blog/handling-forms-in-svelte
+	// takes the new card form submission and creates a new object with the data
+	// then add that new card object to the cards list
 	function submitNewCard(e: any) {
 		const formData = new FormData(e.target);
 
